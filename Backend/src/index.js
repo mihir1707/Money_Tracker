@@ -6,11 +6,12 @@ dotenv.config();
 
 pool.connect()
     .then(() => {
-        const port = process.env.PORT || 8000;
-        app.listen(port, () => {
-            console.log(`Server is running at port: ${port}`);
-        });
+        console.log("DB connected");
     })
     .catch((err) => {
         console.log("Database connection failed !!! ", err);
     });
+
+export default function handler(req, res) {
+    return app(req, res);
+}
